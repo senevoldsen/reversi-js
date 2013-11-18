@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script type="text/javascript" src="Reversi.js"></script>
+	<script type="text/javascript" src="ReversiRender.js"></script>
+	<script type="text/javascript" src="Game.js"></script>
+	<style>
+		body {
+			font-family: Verdana;
+			background-color: #64de89;
+		}
+		#container {
+			margin-left: auto;
+			margin-right: auto;
+ 		}
+		.center {
+			text-align: center;
+		}
+		#board-canvas {
+			position: relative; /* For mouse coordinates */
+			width: 600px;
+			height: 600px;
+			display: block;
+			margin-left: auto;
+    		margin-right: auto;
+    		border: 6px green inset;
+		}
+		#player {
+			font-size: 22pt;
+			text-align: center;
+		}
+		#score {
+			font-size: 18pt;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			Game.playHotseatGame({
+				canvas: {
+					size: 600,
+					id: 'board-canvas'
+				},
+				status: {
+					playerId: 'player',
+					scoreId: 'score'
+				},
+			});
+		});
+	</script>
+	<title>Reversi</title>
+</head>
+<body>
+	<div id="container">
+		<h1 class="center">Game of Othello (Reversi)</h1>
+		<p id="score"></p>
+		<p id="player"></p>
+		<canvas id="board-canvas"></canvas>
+	</div>
+</body>
+</html>
