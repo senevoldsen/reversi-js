@@ -40,15 +40,19 @@ Game = (function() {
 		renderer.draw();
 
 		function showCurrentStatus() {
-			var whiteScore, blackScore, playerText;
+			var playerText;
+			showScore();
 			if (isGameOver) {
 				showGameOver();
-				return;
+			} else {
+				playerText = currentPlayerColor === Disk.WHITE ? 'White' : 'Black';
+				$(status).text('Current player is ' + playerText);
 			}
-			playerText = currentPlayerColor === Disk.WHITE ? 'White' : 'Black';
-			whiteScore = board.score(Disk.WHITE);
-			blackScore = board.score(Disk.BLACK);
-			$(status).text('Current player is ' + playerText);
+		}
+
+		function showScore() {
+			var whiteScore = board.score(Disk.WHITE),
+				blackScore = board.score(Disk.BLACK);
 			$(score).text('White ' + whiteScore + ' vs. ' + blackScore + ' Black');
 		}
 
